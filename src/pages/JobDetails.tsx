@@ -1,48 +1,50 @@
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import jobs from '../jobs.json';
+import { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import jobsData from '../jobs.json';
 
 const JobDetails = () => {
   const { id } = useParams();
-  const [formData, setFormData] = useState({ userName: "", userEmail: "", userSkills: "" });
+  const navigate = useNavigate();
+  const job = jobsData.find(j => j.id === Number(id));
 
-  const job = jobs.find(j => j.id === Number(id));
+  const [formData, setFormData] = useState({
+    name: '', email: '', phone: '', exp: '', resume: '', cover: ''
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleApply = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.userName || !formData.userEmail) return alert("Fill details!");
-
-    const newApp = { jobTitle: job?.title, company: job?.company, ...formData, date: new Date().toLocaleDateString() };
-    const existing = JSON.parse(localStorage.getItem("myApps") || "[]");
-    localStorage.setItem("myApps", JSON.stringify([...existing, newApp]));
-
-    alert("Applied successfully!");
-    setFormData({ userName: "", userEmail: "", userSkills: "" });
+    const applications = JSON.parse(localStorage.getItem('applications') || '[]');
+    const newApp = { ...formData, jobTitle: job?.title, company: job?.company, date: new Date().toLocaleDateString() };
+    localStorage.setItem('applications', JSON.stringify([...applications, newApp]));
+    alert('Application Submitted Successfully!');
+    navigate('/applications');
   };
 
-  if (!job) return <h2>Not found</h2>;
+  if (!job) return <p>Job not found</p>;
 
   return (
-    <div style={{ padding: '40px', textAlign: 'center' }}>
-      <h1>{job.title}</h1>
-      <div style={{ border: '1px solid #ddd', padding: '20px', maxWidth: '500px', margin: 'auto', borderRadius: '10px' }}>
-        <p>{job.desc}</p>
-        <form onSubmit={handleSubmit} style={{ textAlign: 'left', marginTop: '20px' }}>
-          <input name="userName" placeholder="Name" value={formData.userName} onChange={handleChange} style={inputStyle} />
-          <input name="userEmail" placeholder="Email" value={formData.userEmail} onChange={handleChange} style={inputStyle} />
-          <button type="submit" style={btnStyle}>Submit Application</button>
-        </form>
-      </div>
+    <div style={{ padding: '40px', maxWidth: '600px', margin: 'auto' }}>
+      <h1>{job.title} at {job.company}</h1>
+      <p><strong>Location:</strong> {job.location} | <strong>Type:</strong> {job.category}</p>
+      
+      <form onSubmit={handleApply} style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '20px' }}>
+        <input type="text" placeholder="Full Name" required style={{padding: '10px'}} onChange={e => setFormData({...formData, name: e.target.value})} />
+        <input type="email" placeholder="Email" required style={{padding: '10px'}} onChange={e => setFormData({...formData, email: e.target.value})} />
+        <input type="tel" placeholder="Phone Number" required style={{padding: '10px'}} onChange={e => setFormData({...formData, phone: e.target.value})} />
+        <select required style={{padding: '10px'}} onChange={e => setFormData({...formData, exp: e.target.value})}>
+          <option value="">Experience Level</option>
+          <option value="Fresher">Fresher</option>
+          <option value="1-2 Years">1-2 Years</option>
+          <option value="3+ Years">3+ Years</option>
+        </select>
+        <input type="url" placeholder="Resume Link (GDrive/GitHub)" required style={{padding: '10px'}} onChange={e => setFormData({...formData, resume: e.target.value})} />
+        <textarea placeholder="Cover Letter" rows={4} style={{padding: '10px'}} onChange={e => setFormData({...formData, cover: e.target.value})}></textarea>
+        <button type="submit" style={{ padding: '12px', background: '#2563eb', color: '#fff', border: 'none', cursor: 'pointer', borderRadius: '5px' }}>
+          Submit Application
+        </button>
+      </form>
     </div>
   );
 };
-
-const inputStyle = { width: '100%', padding: '10px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' };
-const btnStyle = { width: '100%', padding: '10px', backgroundColor: '#2563eb', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' };
 
 export default JobDetails;

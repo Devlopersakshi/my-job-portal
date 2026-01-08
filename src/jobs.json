@@ -1,30 +1,18 @@
 [
-  {
-    "id": 1,
-    "title": "Frontend Developer",
-    "company": "Google",
-    "location": "Bangalore",
-    "desc": "Hum ek skilled Frontend Developer dhoondh rahe hain jo React aur Tailwind mein expert ho."
-  },
-  {
-    "id": 2,
-    "title": "React Developer",
-    "company": "Amazon",
-    "location": "Remote",
-    "desc": "Amazon team ke liye Remote React developer ki zaroorat hai."
-  },
-  {
-    "id": 3,
-    "title": "Software Engineer",
-    "company": "Microsoft",
-    "location": "Hyderabad",
-    "desc": "Microsoft core team join karein aur scale par kaam karein."
-  },
-  {
-    "id": 4,
-    "title": "UI Designer",
-    "company": "Adobe",
-    "location": "Noida",
-    "desc": "Creative UI Designer jo Adobe tools aur Figma mein mahir ho."
-  }
+  { "id": 1, "title": "Frontend Developer", "company": "Google", "location": "Bangalore", "category": "Job", "type": "Full-time" },
+  { "id": 2, "title": "Web Development Intern", "company": "StartUp X", "location": "Remote", "category": "Internship", "duration": "6 Months" },
+  { "id": 3, "title": "Software Engineer", "company": "Microsoft", "location": "Hyderabad", "category": "Job", "type": "Full-time" },
+  { "id": 4, "title": "UI/UX Design Intern", "company": "Adobe", "location": "Noida", "category": "Internship", "duration": "3 Months" },
+  { "id": 5, "title": "Backend Intern", "company": "Netflix", "location": "Remote", "category": "Internship", "duration": "6 Months" },
+  { "id": 6, "title": "Full Stack Developer", "company": "Meta", "location": "Gurugram", "category": "Job", "type": "Full-time" },
+  { "id": 11, "title": "Java Developer", "company": "Oracle", "location": "Bangalore", "category": "Job", "type": "Full-time" },
+  { "id": 12, "title": "Python Intern", "company": "Tesla", "location": "Remote", "category": "Internship", "duration": "6 Months" },
+  { "id": 13, "title": "Cloud Engineer", "company": "AWS", "location": "Mumbai", "category": "Job", "type": "Full-time" },
+  { "id": 14, "title": "Graphic Design Intern", "company": "Canva", "location": "Noida", "category": "Internship", "duration": "4 Months" },
+  { "id": 15, "title": "Data Analyst", "company": "Flipkart", "location": "Bangalore", "category": "Job", "type": "Full-time" },
+  { "id": 16, "title": "App Developer Intern", "company": "Zomato", "location": "Gurugram", "category": "Internship", "duration": "6 Months" },
+  { "id": 17, "title": "Cyber Security", "company": "IBM", "location": "Hyderabad", "category": "Job", "type": "Full-time" },
+  { "id": 18, "title": "Marketing Intern", "company": "Pepsi", "location": "Mumbai", "category": "Internship", "duration": "2 Months" },
+  { "id": 19, "title": "Blockchain dev", "company": "Polygon", "location": "Remote", "category": "Job", "type": "Contract" },
+  { "id": 20, "title": "AI Research Intern", "company": "OpenAI", "location": "Remote", "category": "Internship", "duration": "1 Year" }
 ]
