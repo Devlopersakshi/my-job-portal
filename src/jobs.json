@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Frontend Developer",
+    "company": "Google",
+    "location": "Bangalore",
+    "desc": "Hum ek skilled Frontend Developer dhoondh rahe hain jo React aur Tailwind mein expert ho."
+  },
+  {
+    "id": 2,
+    "title": "React Developer",
+    "company": "Amazon",
+    "location": "Remote",
+    "desc": "Amazon team ke liye Remote React developer ki zaroorat hai."
+  },
+  {
+    "id": 3,
+    "title": "Software Engineer",
+    "company": "Microsoft",
+    "location": "Hyderabad",
+    "desc": "Microsoft core team join karein aur scale par kaam karein."
+  },
+  {
+    "id": 4,
+    "title": "UI Designer",
+    "company": "Adobe",
+    "location": "Noida",
+    "desc": "Creative UI Designer jo Adobe tools aur Figma mein mahir ho."
+  }
+]
